@@ -3,6 +3,7 @@
   "name": "@wanner.work/image",
   "version": "1.0.0",
   "license": "MIT",
+  "repository": "https://github.com/wanner-work/components/tree/main/packages/image",
   "files": [
     "index.tsx",
     "src/**/*"
