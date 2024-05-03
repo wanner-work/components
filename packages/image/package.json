@@ -1,0 +1,23 @@
+{
+  "author": "@wanner.work",
+  "name": "@wanner.work/image",
+  "version": "1.0.0",
+  "license": "MIT",
+  "files": [
+    "index.tsx",
+    "src/**/*"
+  ],
+  "main": "index.tsx",
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+    },
+  "dependencies": {
+    "jotai": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "typescript": "^5.4.5"
+  }
+}
