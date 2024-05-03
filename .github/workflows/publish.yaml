@@ -12,6 +12,7 @@ jobs:
           node-version: '21.x'
           registry-url: 'https://registry.npmjs.org'
           scope: '@wanner.work'
+      - run: corepack enable pnpm
       - run: pnpm i --frozen-lockfile
       - run: pnpm publish -r
         env:
