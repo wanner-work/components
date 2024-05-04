@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2024-05-04
+
+### Fixed
+
+- Fixed bug where 'use client' would not be transpiled correctly by removing the terser plugin.
+
+### Documentation
+
+- Added a note to the README.md that the package is a client component on Next.js.
+- Added the issues and homepage url to the package.json.
+
 ## [1.1.0] - 2024-05-04
 
 ### Added

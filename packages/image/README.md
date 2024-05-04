@@ -58,3 +58,9 @@ export default function MyComponent() {
 
 - `loader?` (ReactNode?): The loader to show while the image is loading. The custom node will be put into a container
   which has the exact width and height as the image will have.
+
+## Further information
+
+### Next.js
+
+The component can be used on Next.js and exposes the 'use client' directive as it uses useEffect, states and context.

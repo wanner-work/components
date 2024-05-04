@@ -1,28 +1,27 @@
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
-import terser from "@rollup/plugin-terser";
 import {preserveDirective} from "rollup-preserve-directives";
+import {defineConfig} from "rollup";
 
-export default [
+export default defineConfig([
     {
         input: "src/index.tsx",
         output: [
             {
                 file: 'dist/index.js',
                 format: "esm",
-                sourcemap: true,
+                sourcemap: true
             }
         ],
         plugins: [
-            typescript({ tsconfig: "./tsconfig.json" }),
-            preserveDirective(),
-            terser()
+            typescript({tsconfig: "./tsconfig.json"}),
+            preserveDirective()
         ],
         external: ["react", "react-dom", 'react/jsx-runtime', 'jotai'],
     },
     {
         input: "src/index.tsx",
-        output: [{ file: "dist/types.d.ts", format: "es" }],
+        output: [{file: "dist/types.d.ts", format: "es"}],
         plugins: [dts()],
     },
-];
+]);
