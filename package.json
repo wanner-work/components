@@ -1,8 +1,9 @@
 {
   "author": "@wanner.work",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "format": "prettier --write .",
+    "format": "prettier --write ./packages/**/*.{tsx,ts,json}",
     "build": "pnpm --filter='./packages/**/*' --parallel run build"
   },
   "devDependencies": {

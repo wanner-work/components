@@ -1,10 +1,10 @@
 'use client'
 
-import ImageInternal from './internal/ImageInternal.tsx'
-import ImageLoading from './internal/ImageLoading.tsx'
+import ImageInternal from './internal/ImageInternal'
+import ImageLoading from './internal/ImageLoading'
 import { CSSProperties, useContext, useEffect, useState } from 'react'
 import { atom, useAtomValue } from 'jotai'
-import ImageProviderContext from '../context/ImageProviderContext.ts'
+import ImageProviderContext from '../context/ImageProviderContext'
 
 interface Props {
   src: string
@@ -33,7 +33,10 @@ export default function ImageComponent({
   }
 
   let className = ''
-  let style: CSSProperties = {}
+  let style = {
+    height: undefined,
+    width: undefined
+  }
 
   if (fill) {
     className += 'w-full h-full'

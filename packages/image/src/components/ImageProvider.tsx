@@ -2,8 +2,8 @@
 
 import { ReactNode, useMemo } from 'react'
 import { atom } from 'jotai'
-import ProviderAtomContent from '../interfaces/ProviderAtomContent.ts'
-import ImageProviderContext from '../context/ImageProviderContext.ts'
+import ProviderAtomContent from '../interfaces/ProviderAtomContent'
+import ImageProviderContext from '../context/ImageProviderContext'
 
 interface Props extends ProviderAtomContent {
   children: ReactNode[] | ReactNode
