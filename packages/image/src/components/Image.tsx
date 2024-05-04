@@ -2,7 +2,7 @@
 
 import ImageInternal from './internal/ImageInternal'
 import ImageLoading from './internal/ImageLoading'
-import { CSSProperties, useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import { atom, useAtomValue } from 'jotai'
 import ImageProviderContext from '../context/ImageProviderContext'
 
@@ -25,7 +25,7 @@ export default function ImageComponent({
 }: Props) {
   const [isLoading, setIsLoading] = useState(true)
   const provider = useContext(ImageProviderContext)
-  const { loader } = useAtomValue(provider || atom({ loader: undefined }))
+  const { loader } = useAtomValue(provider || useMemo(() => atom({ loader: undefined }), []))
 
 
   if (!fill && (!height || !width)) {
@@ -55,7 +55,7 @@ export default function ImageComponent({
     } else {
       setIsLoading(false)
     }
-  }, [])
+  }, [loading])
 
   return (
     <div className={`relative ${className}`} style={style}>

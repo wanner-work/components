@@ -12,7 +12,8 @@
     "src/**/*"
   ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
