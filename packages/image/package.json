@@ -1,7 +1,7 @@
 {
   "author": "@wanner.work",
   "name": "@wanner.work/image",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "type": "module",
   "homepage": "https://github.com/wanner-work/components/tree/main/packages/image",
