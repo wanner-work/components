@@ -3,6 +3,7 @@
   "name": "@wanner.work/box",
   "version": "1.0.0",
   "license": "MIT",
+  "type": "module",
   "homepage": "https://github.com/wanner-work/components/tree/main/packages/box",
   "repository": "https://github.com/wanner-work/components",
   "bugs": "https://github.com/wanner-work/components/issues",
