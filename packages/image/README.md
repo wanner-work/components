@@ -2,7 +2,7 @@
 
 # image.
 
-An opinionated image component for the web.
+An opinionated image component with caching for the web.
 
 ## Prerequisites
 
@@ -45,6 +45,8 @@ export default function MyComponent() {
       loader={
         <div className="text-white absolute h-full w-full">Loading...</div>
       }
+      useCache
+      cacheMaxAge={1000 * 60 * 60 * 24}
     >
       <Image
         src="https://source.unsplash.com/random"
@@ -72,6 +74,9 @@ export default function MyComponent() {
 
 - `loader?` (ReactNode?): The loader to show while the image is loading. The custom node will be put into a container
   which has the exact width and height as the image will have.
+- `useCache?` (boolean): Whether the image should be cached in the browser. Defaults to `false`.
+- `cacheMaxAge?` (number): The maximum age of the cache in milliseconds. Defaults to `1000 * 60 * 60`. The default is
+  not used if `useCache` is `false`.
 
 ## Further information
 
