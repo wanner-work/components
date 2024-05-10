@@ -21,14 +21,14 @@ The `Box` component is nothing else as a `div` with some predefined classes. It 
 with the advantage of having a consistent layout across your application.
 
 ```tsx
-import Box from "@wanner.work/box";
+import Box from '@wanner.work/box'
 
 export default function Application() {
   return (
     <Box width="content" px="medium" py="small">
       <div className="bg-red-500">Hello, world!</div>
     </Box>
-  );
+  )
 }
 ```
 
@@ -67,4 +67,4 @@ The sizes are based on the tailwindcss spacing scale. The following sizes are av
 
 ### Next.js
 
-The component can be used on Next.js as server-side rendered component. 
+The component can be used on Next.js as server-side rendered component.

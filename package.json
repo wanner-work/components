@@ -2,7 +2,7 @@
   "author": "@wanner.work",
   "license": "MIT",
   "scripts": {
-    "format": "prettier --write .",
+    "format": "pnpm --filter='./packages/**/*' --parallel run format",
     "build": "pnpm --filter='./packages/**/*' --parallel run build"
   },
   "devDependencies": {

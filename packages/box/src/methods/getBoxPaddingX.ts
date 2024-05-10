@@ -1,25 +1,25 @@
 import BoxPadding from '../interfaces/BoxPadding'
 
 export default function getBoxPaddingX(width: BoxPadding | 'no') {
-  let className = "";
+  let className = ''
 
   switch (width) {
-    case "small":
+    case 'small':
       className = 'px-4'
-      break;
-    case "medium":
+      break
+    case 'medium':
       className = 'px-8'
-      break;
-    case "large":
+      break
+    case 'large':
       className = 'px-12'
-      break;
-    case "extra":
+      break
+    case 'extra':
       className = 'px-28'
-      break;
-    case "no":
+      break
+    case 'no':
       className = ''
-      break;
+      break
   }
 
-  return className.trim();
+  return className.trim()
 }

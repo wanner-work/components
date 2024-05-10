@@ -1,31 +1,31 @@
 import BoxWidth from '../interfaces/BoxWidth'
 
 export default function getBoxWidth(width: BoxWidth | 'no') {
-  let className = "";
+  let className = ''
 
   switch (width) {
-    case "small":
+    case 'small':
       className = 'max-w-sm w-full'
-      break;
-    case "medium":
+      break
+    case 'medium':
       className = 'max-w-md w-full'
-      break;
-    case "large":
+      break
+    case 'large':
       className = 'max-w-lg w-full'
-      break;
-    case "extra":
+      break
+    case 'extra':
       className = 'max-w-xl w-full'
-      break;
-    case "full":
+      break
+    case 'full':
       className = 'w-full'
-      break;
-    case "content":
+      break
+    case 'content':
       className = 'max-w-[750px] w-full'
-      break;
-    case "no":
+      break
+    case 'no':
       className = ''
-      break;
+      break
   }
 
-  return className.trim();
+  return className.trim()
 }
