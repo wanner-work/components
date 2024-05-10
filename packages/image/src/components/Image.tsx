@@ -25,8 +25,9 @@ export default function ImageComponent({
 }: Props) {
   const [isLoading, setIsLoading] = useState(true)
   const provider = useContext(ImageProviderContext)
-  const { loader } = useAtomValue(provider || useMemo(() => atom({ loader: undefined }), []))
-
+  const { loader } = useAtomValue(
+    provider || useMemo(() => atom({ loader: undefined }), [])
+  )
 
   if (!fill && (!height || !width)) {
     throw new Error('You must provide a height and width if fill is not set.')
@@ -59,9 +60,7 @@ export default function ImageComponent({
 
   return (
     <div className={`relative ${className}`} style={style}>
-      <div className="absolute w-full h-full">
-        {loader || <ImageLoading />}
-      </div>
+      <div className="absolute w-full h-full">{loader || <ImageLoading />}</div>
       {!isLoading && <ImageInternal src={src} alt={alt} loading={loading} />}
     </div>
   )

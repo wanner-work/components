@@ -1,6 +1,6 @@
 ![image.](docs/lead.svg)
 
-# image. 
+# image.
 
 An opinionated image component for the web.
 
@@ -24,7 +24,12 @@ import Image from '@wanner.work/image'
 
 export default function MyComponent() {
   return (
-    <Image src="https://source.unsplash.com/random" alt="Random image" height={500} width={500}/>
+    <Image
+      src="https://source.unsplash.com/random"
+      alt="Random image"
+      height={500}
+      width={500}
+    />
   )
 }
 ```
@@ -36,8 +41,17 @@ import Image, { ImageProvider } from '@wanner.work/image'
 
 export default function MyComponent() {
   return (
-    <ImageProvider loader={<div className="text-white absolute h-full w-full">Loading...</div>}>
-      <Image src="https://source.unsplash.com/random" alt="Random image" height={500} width={500}/>
+    <ImageProvider
+      loader={
+        <div className="text-white absolute h-full w-full">Loading...</div>
+      }
+    >
+      <Image
+        src="https://source.unsplash.com/random"
+        alt="Random image"
+        height={500}
+        width={500}
+      />
     </ImageProvider>
   )
 }

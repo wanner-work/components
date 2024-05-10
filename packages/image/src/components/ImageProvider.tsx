@@ -9,12 +9,18 @@ interface Props extends ProviderAtomContent {
   children: ReactNode[] | ReactNode
 }
 
-export default function ImageProvider ({ loader, children }: Props) {
-  const imageProviderAtom = useMemo(() => atom<ProviderAtomContent>({
-    loader
-  }), [loader])
+export default function ImageProvider({ loader, children }: Props) {
+  const imageProviderAtom = useMemo(
+    () =>
+      atom<ProviderAtomContent>({
+        loader
+      }),
+    [loader]
+  )
 
-  return <ImageProviderContext.Provider value={imageProviderAtom}>
-    {children}
-  </ImageProviderContext.Provider>
+  return (
+    <ImageProviderContext.Provider value={imageProviderAtom}>
+      {children}
+    </ImageProviderContext.Provider>
+  )
 }
