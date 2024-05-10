@@ -1,6 +1,6 @@
 ![components.](docs/lead.svg)
 
-# components. 
+# components.
 
 Opinionated, basic components for the web.
 
@@ -18,3 +18,4 @@ of [react](https://react.dev/).
 ## Packages
 
 - [@wanner.work/image](packages/image/README.md)
+- [@wanner.work/box](packages/box/README.md)
