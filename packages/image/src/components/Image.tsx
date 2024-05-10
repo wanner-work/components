@@ -2,9 +2,10 @@
 
 import ImageInternal from './internal/ImageInternal'
 import ImageLoading from './internal/ImageLoading'
-import { useContext, useEffect, useMemo, useState } from 'react'
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { atom, useAtomValue } from 'jotai'
 import ImageProviderContext from '../context/ImageProviderContext'
+import CACHE from '../constants/CACHE'
 
 interface Props {
   src: string
@@ -23,10 +24,20 @@ export default function ImageComponent({
   fill,
   loading = 'lazy'
 }: Props) {
-  const [isLoading, setIsLoading] = useState(true)
+  const [image, setImage] = useState<string>(undefined)
+
   const provider = useContext(ImageProviderContext)
-  const { loader } = useAtomValue(
-    provider || useMemo(() => atom({ loader: undefined }), [])
+  const { loader, cacheMaxAge, useCache } = useAtomValue(
+    provider ||
+      useMemo(
+        () =>
+          atom({
+            loader: undefined,
+            useCache: false,
+            cacheMaxAge: CACHE.defaultMaxAge
+          }),
+        []
+      )
   )
 
   if (!fill && (!height || !width)) {
@@ -47,21 +58,62 @@ export default function ImageComponent({
   }
 
   useEffect(() => {
-    if (loading === 'eager') {
-      const image = new Image()
-      image.src = src
-      image.onload = () => {
-        setIsLoading(false)
-      }
+    if (useCache) {
+      void resolveCache()
     } else {
-      setIsLoading(false)
+      setImage(src)
     }
-  }, [loading])
+  }, [loading, image, src, useCache, cacheMaxAge])
+
+  const resolveCache = async () => {
+    const cache = await caches.open(CACHE.name)
+    const cachedResponse = await cache.match(src)
+
+    if (cachedResponse) {
+      if (
+        new Date().getTime() - parseInt(cachedResponse.headers.get('age')) >
+        cacheMaxAge
+      ) {
+        await cache.delete(src)
+      } else {
+        const base64 = await readCache(await cachedResponse.blob())
+        setImage(base64)
+        return
+      }
+    }
+
+    if (loading === 'eager') {
+      setImage(src)
+    }
+
+    const imageResponse = await fetch(src)
+    const blob = await imageResponse.blob()
+    const base64 = await readCache(blob)
+    setImage(base64)
+
+    await cache.put(
+      src,
+      new Response(blob, {
+        headers: {
+          ...imageResponse.headers,
+          age: new Date().getTime().toString()
+        }
+      })
+    )
+  }
+
+  const readCache = useCallback(async (blob: Blob) => {
+    return await new Promise<string>((resolve) => {
+      const reader = new FileReader()
+      reader.onloadend = () => resolve(reader.result as string)
+      reader.readAsDataURL(blob)
+    })
+  }, [])
 
   return (
     <div className={`relative ${className}`} style={style}>
       <div className="absolute w-full h-full">{loader || <ImageLoading />}</div>
-      {!isLoading && <ImageInternal src={src} alt={alt} loading={loading} />}
+      <ImageInternal src={image} alt={alt} loading={loading} />
     </div>
   )
 }
