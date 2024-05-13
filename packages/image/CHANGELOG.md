@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2024-05-13
+
+### Breaking
+
+- The cache configuration has moved from `useCache` and `cacheMaxAge={...}` on the `ImageProvider` component to the 
+  `cache` prop. The `cache` prop is an object with the following properties: `enabled` (boolean), `maxAge` (number), and 
+  some new ones. (see below)
+
+### Added
+
+- Added the option to set your own cache key per image. This makes sure, e.g. notion images can be cached as well, even 
+  if the url, which is returned by the api, changes every single time even tho the image itself is the same.
+- Created a `useImage` hook which handles all of the caching and loading if more flexibility is needed.
+- Exported useful methods `getImageDataURL` and `preloadImage`
+
 ## [1.2.0] - 2024-05-10
 
 ### Added

@@ -1,6 +1,8 @@
 const CACHE = {
   name: '@wanner.work/image',
-  defaultMaxAge: 1000 * 60 * 60
+  defaultEnabled: false,
+  defaultMaxAge: 1000 * 60 * 60,
+  defaultKeyGenerator: undefined
 }
 
 export default CACHE

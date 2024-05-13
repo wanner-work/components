@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
+import ImageCacheOptions from './ImageCacheOptions'
 
 export default interface ProviderAtomContent {
-  useCache?: boolean
-  cacheMaxAge?: number
+  cache?: ImageCacheOptions
   loader?: ReactNode
 }

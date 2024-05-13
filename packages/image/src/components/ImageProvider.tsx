@@ -4,6 +4,7 @@ import { ReactNode, useMemo } from 'react'
 import { atom } from 'jotai'
 import ProviderAtomContent from '../interfaces/ProviderAtomContent'
 import ImageProviderContext from '../context/ImageProviderContext'
+import PROVIDER_DEFAULTS from '../constants/PROVIDER_DEFAULTS'
 
 interface Props extends ProviderAtomContent {
   children: ReactNode[] | ReactNode
@@ -11,18 +12,20 @@ interface Props extends ProviderAtomContent {
 
 export default function ImageProvider({
   loader,
-  useCache,
-  cacheMaxAge,
+  cache,
   children
 }: Props) {
   const imageProviderAtom = useMemo(
     () =>
       atom<ProviderAtomContent>({
         loader,
-        useCache,
-        cacheMaxAge
+        cache: {
+          enabled: cache?.enabled || PROVIDER_DEFAULTS.cache.enabled,
+          maxAge: cache?.maxAge || PROVIDER_DEFAULTS.cache.maxAge,
+          keyGenerator: cache?.keyGenerator || PROVIDER_DEFAULTS.cache.keyGenerator
+        }
       }),
-    [loader, useCache, cacheMaxAge]
+    [loader, cache]
   )
 
   return (

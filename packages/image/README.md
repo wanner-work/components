@@ -45,8 +45,11 @@ export default function MyComponent() {
       loader={
         <div className="text-white absolute h-full w-full">Loading...</div>
       }
-      useCache
-      cacheMaxAge={1000 * 60 * 60 * 24}
+      cache={{
+        enabled: true,
+        maxAge: 1000 * 60 * 60 * 24,
+        keyGenerator: (src) => src.split('?')[0] || src
+      }}
     >
       <Image
         src="https://source.unsplash.com/random"
@@ -61,6 +64,22 @@ export default function MyComponent() {
 
 ## Options
 
+### `useImage` hook
+
+#### Input
+
+- `src` (string): The source of the image.
+- `options?` (useImageOptions?): Hook options:
+  - `cache?` (ImageCacheOptions?): The cache options:
+  - `enabled?` (boolean?): If the caching should be enabled
+  - `maxAge?` (number?): The max age of the cache until the resources should be fetched again
+  - `keyGenerator?` ((url: string) => string): If the key of the cache shouldn't just be the src url.
+
+#### Output
+
+- `isLoading` (boolean): Boolean to show if the image is loading
+- `image` (string): Either the url or the base64 data url of the image.
+
 ### `Image` component
 
 - `src` (string): The source of the image.
@@ -74,9 +93,10 @@ export default function MyComponent() {
 
 - `loader?` (ReactNode?): The loader to show while the image is loading. The custom node will be put into a container
   which has the exact width and height as the image will have.
-- `useCache?` (boolean): Whether the image should be cached in the browser. Defaults to `false`.
-- `cacheMaxAge?` (number): The maximum age of the cache in milliseconds. Defaults to `1000 * 60 * 60`. The default is
-  not used if `useCache` is `false`.
+- `cache?` (ImageCacheOptions?): The cache options:
+  - `enabled?` (boolean?): If the caching should be enabled
+  - `maxAge?` (number?): The max age of the cache until the resources should be fetched again
+  - `keyGenerator?` ((url: string) => string): If the key of the cache shouldn't just be the src url.
 
 ## Further information
 
