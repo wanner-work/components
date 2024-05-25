@@ -10,9 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Breaking
 
 - Changed the width's values of all sizes to be more useful and visually pleasing.
+- Changed the padding's values of all sizes to be more useful and visually pleasing.
 
 ### Added
 
+- Adding new width sizes: `content-small`, `content`, and `content-large`.
 - Added the new `align` prop to align the box either to the left, center, or right.
 
 ## [1.0.0] - 2024-05-10

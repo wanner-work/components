@@ -60,9 +60,9 @@ The following sizes are available:
 ### `px` and `py` property
 
 - `small`: `px-4`
-- `medium`: `px-8`
-- `large`: `px-12`
-- `extra`: `px-28`
+- `medium`: `px-6`
+- `large`: `px-8`
+- `extra`: `px-14`
 - `no`: _(no padding)_
 
 ### `align` property

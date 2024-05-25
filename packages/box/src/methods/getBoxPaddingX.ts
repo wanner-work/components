@@ -8,13 +8,13 @@ export default function getBoxPaddingX(width: BoxPadding | 'no') {
       className = 'px-4'
       break
     case 'medium':
-      className = 'px-8'
+      className = 'px-6'
       break
     case 'large':
-      className = 'px-12'
+      className = 'px-8'
       break
     case 'extra':
-      className = 'px-28'
+      className = 'px-14'
       break
     case 'no':
       className = ''

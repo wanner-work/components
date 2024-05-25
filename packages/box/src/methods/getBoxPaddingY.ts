@@ -8,13 +8,13 @@ export default function getBoxPaddingY(width: BoxPadding | 'no') {
       className = 'py-4'
       break
     case 'medium':
-      className = 'py-8'
+      className = 'py-6'
       break
     case 'large':
-      className = 'py-12'
+      className = 'py-8'
       break
     case 'extra':
-      className = 'py-28'
+      className = 'py-14'
       break
     case 'no':
       className = ''
