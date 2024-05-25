@@ -43,16 +43,18 @@ export default function Application() {
 
 ## Sizes
 
-The sizes are based on the tailwindcss spacing scale. The following sizes are available:
+The following sizes are available:
 
 ### `width` property
 
-- `small`: `max-w-sm`
-- `medium`: `max-w-md`
-- `large`: `max-w-lg`
-- `extra`: `max-w-xl`
+- `small`: `max-w-[500px]`
+- `medium`: `max-w-[800px]`
+- `large`: `max-w-[1100px]`
+- `extra`: `max-w-[1300px]`
 - `full`: `max-w-full`
-- `content`: `max-w-[750px]`
+- `content-small`: `max-w-[600px]`
+- `content`: `max-w-[650px]`
+- `content-large`: `max-w-[700px]`
 - `no`: _(no width)_
 
 ### `px` and `py` property
@@ -62,6 +64,13 @@ The sizes are based on the tailwindcss spacing scale. The following sizes are av
 - `large`: `px-12`
 - `extra`: `px-28`
 - `no`: _(no padding)_
+
+### `align` property
+
+- `left`: `mr-auto`
+- `center`: `mx-auto`
+- `right`: `ml-auto`
+- `no`: _(no alignment)_
 
 ## Further information
 
